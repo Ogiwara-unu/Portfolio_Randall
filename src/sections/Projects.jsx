@@ -11,6 +11,7 @@ const Projects = () => {
     x.set(e.clientX + 20);
     y.set(e.clientY + 20);
   };
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
   const [preview, setPreview] = useState(null);
   return (
     <section
@@ -22,13 +23,13 @@ const Projects = () => {
       {myProjects.map((project) => (
         <Project key={project.id} {...project} setPreview={setPreview} />
       ))}
-      {preview && (
+      {preview && !isMobile && (
         <motion.img
           className="fixed top-0 left-0 z-50 object-cover h-56 rounded-lg shadow-lg pointer-events-none w-80"
           src={preview}
           style={{ x: springX, y: springY }}
         />
-      )}
+)}
     </section>
   );
 };
