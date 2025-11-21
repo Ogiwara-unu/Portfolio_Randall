@@ -51,7 +51,7 @@ const ProjectDetails = ({
   </a>
 ) : (
   <span className="text-neutral-400 italic text-sm">
-    🔒 Private repository (NDA protected)
+    🔒 Private repository
   </span>
 )}
 
